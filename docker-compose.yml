@@ -1,0 +1,7 @@
+version: '2'
+services:
+  autodl-irssi:
+    build: .
+    volumes:
+      - ./config/autodl:/home/user/.autodl
+      - ./config/irssi:/home/user/.irssi
