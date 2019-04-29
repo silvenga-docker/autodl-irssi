@@ -3,15 +3,15 @@
 # https://github.com/tinco/irssi-container/blob/master/container/service/irssi/run
 
 set -e
-echo "Starting session" >> /var/log/irssi-sessions.log
-chpst -u irssi tmux new-session -s irssi -d irssi 2>&1 >> /var/log/irssi-sessions.log
-echo "Session started" >> /var/log/irssi-sessions.log
+echo "Starting session" >> /home/user/irssi-sessions.log
+tmux new-session -s irssi -d irssi 2>&1 >> /home/user/irssi-sessions.log
+echo "Session started" >> /home/user/irssi-sessions.log
 
 set +e
 while [ $? -eq 0 ]
 do
   sleep 1
-  chpst -u irssi tmux has-session -t irssi
+  tmux has-session -t irssi
 done
 
-echo "Session ended" >> /var/log/irssi-sessions.log
+echo "Session ended" >> /home/user/irssi-sessions.log
