@@ -12,12 +12,15 @@ RUN set -xe \
     perl-json \
     perl-net-ssleay \
     perl-xml-libxml \
+    tmux \
     && chown -R user:user /home/user \
     && rm -rf /tmp/*
+
+ADD root/* /
 
 USER user
 WORKDIR /home/user
 VOLUME /home/user/.autodl \
     /home/user/.irssi
 
-CMD ["irssi"]
+CMD ["/bin/bash", "/start.sh"]
