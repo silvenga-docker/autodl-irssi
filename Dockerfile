@@ -1,7 +1,8 @@
 FROM irssi:alpine
 
-USER root
+LABEL maintainer "Mark Lopez <m@silvenga.com>"
 
+USER root
 RUN set -xe \
     && apk --no-cache add \
     bash \
@@ -16,7 +17,7 @@ RUN set -xe \
     && chown -R user:user /home/user \
     && rm -rf /tmp/*
 
-ADD root/* /
+ADD rootfs/* /
 
 USER user
 WORKDIR /home/user
